@@ -3,8 +3,8 @@
 
 PUBLIC elapsed AS Integer = 0
 PUBLIC retval AS Integer
-PUBLIC minutes AS Float = 0.25
-PUBLIC pause AS Float = 0.25
+PUBLIC minutes AS Float = 25
+PUBLIC pause AS Float = 5
 PUBLIC AudioFile AS Sound
 
 PRIVATE WHITE AS Integer = &HFFFFFF&
@@ -170,8 +170,13 @@ PUBLIC SUB Start_Application()
   Button2.Text = "Stop pomodoro"
   Button2.Enabled = FALSE
   
-  minutes = 0.25
-  pause = 0.25
+  TextLabel2.Text = minutes
+  TextLabel2.ForeColor = BLACK
+  TextLabel2.BackColor = WHITE
+  TextLabel2.Font = Font["Bitstream Vera Serif,Bold,35"]
+  
+  minutes = 25
+  pause = 5
   
 END
 
