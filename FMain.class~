@@ -1,0 +1,177 @@
+' Gambas class file
+' Main form
+
+PUBLIC elapsed AS Integer = 0
+PUBLIC retval AS Integer
+PUBLIC minutes AS Float = 0.25
+PUBLIC pause AS Float = 0.25
+PUBLIC AudioFile AS Sound
+
+PRIVATE WHITE AS Integer = &HFFFFFF&
+PRIVATE BLACK AS Integer = &H000000&
+
+PUBLIC SUB _new()
+
+END
+
+PUBLIC SUB Form_Open()
+
+  Panel1.BackColor = WHITE
+  
+  TextLabel1.Text = "Pomodoro me!"
+  TextLabel1.BackColor = WHITE
+  TextLabel1.Font = Font["Bitstream Vera Serif,Bold,15"]
+  
+  Start_Application()
+  
+  TextLabel3.Text = "minutes"
+  TextLabel3.ForeColor = BLACK
+  TextLabel3.BackColor = WHITE
+  TextLabel3.Font = Font["Bitstream Vera Serif,Bold,10"]
+  
+  TextLabel4.Text = "remaining"
+  TextLabel4.ForeColor = BLACk
+  TextLabel4.BackColor = WHITE
+  TextLabel4.Font = Font["Bitstream Vera Serif,Bold,10"]
+  
+  PictureBox1.Picture = Picture["pomodoro.png"]
+
+
+END
+
+PUBLIC SUB Button1_Click()
+
+  Timer1.enabled = TRUE
+   
+  Whistle()
+  
+  Music.Load("clock.wav")
+  Music.Play(-1)
+  
+  Button1.Enabled = FALSE
+  Button2.Enabled = TRUE
+
+END
+
+
+PUBLIC SUB Button2_Click()
+
+  Timer1.enabled = FALSE
+  Timer2.enabled = FALSE
+  
+  Whistle()
+  Music.Stop
+  
+  Button1.Enabled = TRUE
+  Button2.Enabled = FALSE
+
+END
+
+PUBLIC SUB Timer1_Timer()
+
+  Scale_Time()
+  
+  IF minutes = 0.00 THEN 
+    Start_Pause
+  ENDIF
+  
+END
+
+PUBLIC SUB Timer2_Timer()
+
+  Scale_Time()
+  
+  IF minutes = 0.00 THEN 
+    End_Pomodoro()
+  ENDIF
+  
+END
+
+PUBLIC SUB Start_Pause()
+  
+  Whistle()
+
+  Button1.Text = "Start pause"  
+  Button2.Text = "Stop pause"
+  
+  ProgressBar1.Value = 1
+  
+  minutes = pause
+  TextLabel2.Text = minutes
+  TextLabel2.ForeColor = &H2c7518&
+  
+  Timer1.enabled = FALSE  
+  Timer2.enabled = TRUE
+
+END
+
+
+PUBLIC SUB Notice_end()
+  
+  AudioFile = NEW Sound("bell.wav")
+  AudioFile.Play   
+
+END
+
+PUBLIC SUB Scale_Time()
+  
+  elapsed = elapsed + 1
+  
+  IF elapsed = 15 THEN 
+    ProgressBar1.Value = ProgressBar1.Value + 0.01
+    elapsed = 0
+    minutes = minutes - 0.25
+    
+    IF minutes < 1 AND minutes > 0 THEN 
+      Notice_end
+    ENDIF
+    
+    TextLabel2.Text = Int(minutes - 0.25) + 1
+  ENDIF 
+  
+END
+
+PUBLIC SUB End_Pomodoro()
+  
+  Timer2.Enabled = FALSE
+  Whistle()
+  Music.Stop
+  
+  retval = Message.Question("Your pomodoro has ended! Do you want to run another one?", "For sure", "No man, I'm done")
+  
+  IF retval = 1 THEN 
+    ME.Form_Open()
+  ELSE IF retval = 2 THEN 
+    ME.Close()
+  ENDIF
+  
+  
+END
+
+PUBLIC SUB Whistle()
+  
+  AudioFile = NEW Sound("whistle.wav")
+  AudioFile.Play   
+  
+END
+
+PUBLIC SUB Button3_Click()
+  
+  Message.Info("AAA")
+  
+END
+
+
+PUBLIC SUB Start_Application()
+  
+  Button1.Text = "Start pomodoro"
+  Button1.Enabled = TRUE
+  
+  Button2.Text = "Stop pomodoro"
+  Button2.Enabled = FALSE
+  
+  minutes = 0.25
+  pause = 0.25
+  
+END
+

@@ -1,0 +1,11 @@
+# Gambas Project File 2.0
+# Compiled with Gambas 2.19.0
+Title=Pomodoro Me!
+Startup=FMain
+Version=1.0.0
+Library=gb.qt
+Library=gb.form
+Library=gb.qt.ext
+Library=gb.sdl.sound
+Authors=Alessandro Nadalin
+TabSize=2

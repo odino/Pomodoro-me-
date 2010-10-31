@@ -1,0 +1,47 @@
+# Gambas Form File 2.0
+
+{ Form Form
+  MoveScaled(0,0,65,24)
+  Text = ("")
+  { Panel1 Panel
+    MoveScaled(0,0,65,25)
+    { PictureBox1 PictureBox
+      MoveScaled(41,1,16,16)
+    }
+    { ProgressBar1 ProgressBar
+      MoveScaled(1,14,38,7)
+    }
+    { TextLabel2 TextLabel
+      MoveScaled(40,13,29,13)
+      Text = ("TextLabel2")
+    }
+    { TextLabel3 TextLabel
+      MoveScaled(52,14,24,3)
+      Text = ("TextLabel3")
+    }
+    { Timer2 #Timer
+      #X = 294
+      #Y = 126
+    }
+  }
+  { TextLabel1 TextLabel
+    MoveScaled(2,1,29,4)
+    Text = ("TextLabel1")
+  }
+  { Button1 Button
+    MoveScaled(1,7,16,4)
+    Text = ("Button1")
+  }
+  { Timer1 #Timer
+    #X = 420
+    #Y = 119
+  }
+  { TextLabel4 TextLabel
+    MoveScaled(52,17,24,3)
+    Text = ("TextLabel3")
+  }
+  { Button2 Button
+    MoveScaled(19,7,16,4)
+    Text = ("Button1")
+  }
+}

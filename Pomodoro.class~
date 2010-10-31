@@ -1,0 +1,14 @@
+' Gambas class file
+
+
+PUBLIC SUB TextLabel1_MouseDown()
+
+  
+
+END
+
+PUBLIC SUB Form_Open()
+
+  
+
+END
