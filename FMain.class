@@ -185,7 +185,7 @@ END
 
 PUBLIC SUB ckBxEnableTicking_Click()
 
-    IF ckBxEnableTicking.Value = TRUE THEN 
+    IF (ckBxEnableTicking.Value = TRUE) AND (Timer1.Enabled = TRUE) THEN 
       Music.Load("clock.wav")
       Music.Play(-1)
     ELSE 

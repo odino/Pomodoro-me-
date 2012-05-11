@@ -182,3 +182,14 @@ PUBLIC SUB Start_Application()
   
 END
 
+
+PUBLIC SUB ckBxEnableTicking_Click()
+
+    IF (ckBxEnableTicking.Value = TRUE) & (Button1.Enabled = TRUE) THEN 
+      Music.Load("clock.wav")
+      Music.Play(-1)
+    ELSE 
+      Music.Stop
+    ENDIF 
+
+END
