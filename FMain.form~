@@ -11,13 +11,13 @@
     { ProgressBar1 ProgressBar
       MoveScaled(1,17,38,7)
     }
-    { TextLabel2 TextLabel
+    { lblMinutes TextLabel
       MoveScaled(40,16,29,13)
-      Text = ("TextLabel2")
+      Text = ("25")
     }
-    { TextLabel3 TextLabel
+    { lblMinutesText TextLabel
       MoveScaled(49,17,24,3)
-      Text = ("TextLabel3")
+      Text = ("minutes")
     }
     { Timer2 #Timer
       #X = 49
@@ -29,24 +29,24 @@
       Text = ("Enable Ticking")
     }
   }
-  { TextLabel1 TextLabel
+  { lblTitle TextLabel
     MoveScaled(2,1,29,4)
-    Text = ("TextLabel1")
+    Text = ("Pomodoro me!")
   }
-  { Button1 Button
+  { btnStart Button
     MoveScaled(1,7,16,4)
-    Text = ("Button1")
+    Text = ("Start pomodoro")
   }
-  { Timer1 #Timer
+  { tmrPomodoro #Timer
     #X = 7
     #Y = 224
   }
-  { TextLabel4 TextLabel
+  { lblRemainingText TextLabel
     MoveScaled(49,20,24,3)
-    Text = ("TextLabel3")
+    Text = ("remaining")
   }
-  { Button2 Button
+  { btnStop Button
     MoveScaled(19,7,16,4)
-    Text = ("Button1")
+    Text = ("Stop pomodoro")
   }
 }
