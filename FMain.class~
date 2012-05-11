@@ -45,8 +45,10 @@ PUBLIC SUB Button1_Click()
    
   Whistle()
   
-  Music.Load("clock.wav")
-  Music.Play(-1)
+  IF ckBxEnableTicking.Value = TRUE THEN 
+    Music.Load("clock.wav")
+    Music.Play(-1)
+  ENDIF 
   
   Button1.Enabled = FALSE
   Button2.Enabled = TRUE
@@ -170,13 +172,13 @@ PUBLIC SUB Start_Application()
   Button2.Text = "Stop pomodoro"
   Button2.Enabled = FALSE
   
+  minutes = 25
+  pause = 5
+  
   TextLabel2.Text = minutes
   TextLabel2.ForeColor = BLACK
   TextLabel2.BackColor = WHITE
   TextLabel2.Font = Font["Bitstream Vera Serif,Bold,35"]
-  
-  minutes = 25
-  pause = 5
   
 END
 
