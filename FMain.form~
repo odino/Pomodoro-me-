@@ -1,30 +1,31 @@
 # Gambas Form File 2.0
 
 { Form Form
-  MoveScaled(0,0,80,24)
+  MoveScaled(0,0,60,25)
   Text = ("")
   { Panel1 Panel
-    MoveScaled(0,0,80,25)
+    MoveScaled(0,0,80,38)
     { PictureBox1 PictureBox
-      MoveScaled(56,1,16,16)
+      MoveScaled(40,1,16,16)
     }
     { ProgressBar1 ProgressBar
-      MoveScaled(1,14,38,7)
+      MoveScaled(1,17,38,7)
     }
     { TextLabel2 TextLabel
-      MoveScaled(52,13,29,13)
+      MoveScaled(40,16,29,13)
       Text = ("TextLabel2")
     }
     { TextLabel3 TextLabel
-      MoveScaled(62,14,24,3)
+      MoveScaled(49,17,24,3)
       Text = ("TextLabel3")
     }
     { Timer2 #Timer
-      #X = 294
-      #Y = 126
+      #X = 49
+      #Y = 224
     }
     { ckBxEnableTicking CheckBox
-      MoveScaled(37,8,16,3)
+      MoveScaled(2,13,16,3)
+      ToolTip = ("Play ticking sound while timer is running.")
       Text = ("Enable Ticking")
     }
   }
@@ -37,11 +38,11 @@
     Text = ("Button1")
   }
   { Timer1 #Timer
-    #X = 301
-    #Y = 84
+    #X = 7
+    #Y = 224
   }
   { TextLabel4 TextLabel
-    MoveScaled(62,17,24,3)
+    MoveScaled(49,20,24,3)
     Text = ("TextLabel3")
   }
   { Button2 Button
