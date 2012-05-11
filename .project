@@ -1,5 +1,5 @@
 # Gambas Project File 2.0
-# Compiled with Gambas 2.19.0
+# Compiled with Gambas 2.22.0
 Title=Pomodoro Me!
 Startup=FMain
 Icon=pomodoro.png
