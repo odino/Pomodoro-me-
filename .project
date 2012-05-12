@@ -1,24 +1,27 @@
 # Gambas Project File 2.0
-# Compiled with Gambas 2.19.0
+# Compiled with Gambas 2.22.0
 Title=Pomodoro Me!
 Startup=FMain
 Icon=pomodoro.png
-Version=1.0.2
+Version=1.0.3
 Library=gb.qt
 Library=gb.form
 Library=gb.qt.ext
 Library=gb.sdl.sound
-Description=A pomodoro tecnique applet to help you manage your time!
-Authors=Alessandro Nadalin
+Description=A pomodoro technique applet to help you manage your time!
+Authors=Alessandro Nadalin, Mat Gilbert
 TabSize=2
-ExecPath=/home/odino/Desktop/pomodoro_me.gambas
-Maintainer=Alessandro Nadalin
-Vendor=Odino
-Address=alessandro.nadalin@gmail.com
+ExecPath=/home/mat/Documents/Projects/Pomodoro-me-/Pomodoro-me-mat.gambas
+SourcePath=/home/mat/compiled-source-packages
+Maintainer=Mat Gilbert
+Vendor=freefallertam
+Address=freefallertam@gmail.com
+Url=http://matalangilbert.blogspot.com
 License=General Public Licence
+Prefix=1
 UseRelease=1
 CreateEachDirectory=1
 Systems=debian,fedora,mandriva,suse,ubuntu
-Menus=Apps/Programming,Applet,Office/Other,Applet,Apps/Programming
-Categories=,Applet,Office,Applet,Office
-Groups=Office,Development,Office,Productivity/Office,Office
+Menus=Applications/Office,Applet,Office/Other,Applet,Apps/Programming
+Categories=Office,Applet,Office,Applet,Office
+Groups=utils,Development,Office,Productivity/Office,Office

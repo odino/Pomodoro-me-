@@ -18,56 +18,58 @@ PUBLIC SUB Form_Open()
 
   Panel1.BackColor = WHITE
   
-  TextLabel1.Text = "Pomodoro me!"
-  TextLabel1.BackColor = WHITE
-  TextLabel1.Font = Font["Bitstream Vera Serif,Bold,15"]
+  lblTitle.Text = "Pomodoro me!"
+  lblTitle.BackColor = WHITE
+  lblTitle.Font = Font["Bitstream Vera Serif,Bold,15"]
   
   Start_Application()
   
-  TextLabel3.Text = "minutes"
-  TextLabel3.ForeColor = BLACK
-  TextLabel3.BackColor = WHITE
-  TextLabel3.Font = Font["Bitstream Vera Serif,Bold,10"]
+  lblMinutesText.Text = "minutes"
+  lblMinutesText.ForeColor = BLACK
+  lblMinutesText.BackColor = WHITE
+  lblMinutesText.Font = Font["Bitstream Vera Serif,Bold,10"]
   
-  TextLabel4.Text = "remaining"
-  TextLabel4.ForeColor = BLACk
-  TextLabel4.BackColor = WHITE
-  TextLabel4.Font = Font["Bitstream Vera Serif,Bold,10"]
+  lblRemainingText.Text = "remaining"
+  lblRemainingText.ForeColor = BLACk
+  lblRemainingText.BackColor = WHITE
+  lblRemainingText.Font = Font["Bitstream Vera Serif,Bold,10"]
   
   PictureBox1.Picture = Picture["pomodoro.png"]
 
 
 END
 
-PUBLIC SUB Button1_Click()
+PUBLIC SUB btnStart_Click()
 
-  Timer1.enabled = TRUE
+  tmrPomodoro.enabled = TRUE
    
   Whistle()
   
-  Music.Load("clock.wav")
-  Music.Play(-1)
+  IF ckBxEnableTicking.Value = TRUE THEN 
+    Music.Load("clock.wav")
+    Music.Play(-1)
+  ENDIF 
   
-  Button1.Enabled = FALSE
-  Button2.Enabled = TRUE
+  btnStart.Enabled = FALSE
+  btnStop.Enabled = TRUE
 
 END
 
 
-PUBLIC SUB Button2_Click()
+PUBLIC SUB btnStop_Click()
 
-  Timer1.enabled = FALSE
-  Timer2.enabled = FALSE
+  tmrPomodoro.enabled = FALSE
+  tmrPause.enabled = FALSE
   
   Whistle()
   Music.Stop
   
-  Button1.Enabled = TRUE
-  Button2.Enabled = FALSE
+  btnStart.Enabled = TRUE
+  btnStop.Enabled = FALSE
 
 END
 
-PUBLIC SUB Timer1_Timer()
+PUBLIC SUB tmrPomodoro_Timer()
 
   Scale_Time()
   
@@ -77,7 +79,7 @@ PUBLIC SUB Timer1_Timer()
   
 END
 
-PUBLIC SUB Timer2_Timer()
+PUBLIC SUB tmrPause_Timer()
 
   Scale_Time()
   
@@ -91,17 +93,17 @@ PUBLIC SUB Start_Pause()
   
   Whistle()
 
-  Button1.Text = "Start pause"  
-  Button2.Text = "Stop pause"
+  btnStart.Text = "Start pause"  
+  btnStop.Text = "Stop pause"
   
   ProgressBar1.Value = 1
   
   minutes = pause
-  TextLabel2.Text = minutes
-  TextLabel2.ForeColor = &H2c7518&
+  lblMinutes.Text = minutes
+  lblMinutes.ForeColor = &H2c7518&
   
-  Timer1.enabled = FALSE  
-  Timer2.enabled = TRUE
+  tmrPomodoro.enabled = FALSE  
+  tmrPause.enabled = TRUE
 
 END
 
@@ -126,14 +128,14 @@ PUBLIC SUB Scale_Time()
       Notice_end
     ENDIF
     
-    TextLabel2.Text = Int(minutes - 0.25) + 1
+    lblMinutes.Text = Int(minutes - 0.25) + 1
   ENDIF 
   
 END
 
 PUBLIC SUB End_Pomodoro()
   
-  Timer2.Enabled = FALSE
+  tmrPause.Enabled = FALSE
   Whistle()
   Music.Stop
   
@@ -164,19 +166,30 @@ END
 
 PUBLIC SUB Start_Application()
   
-  Button1.Text = "Start pomodoro"
-  Button1.Enabled = TRUE
+  btnStart.Text = "Start pomodoro"
+  btnStart.Enabled = TRUE
   
-  Button2.Text = "Stop pomodoro"
-  Button2.Enabled = FALSE
+  btnStop.Text = "Stop pomodoro"
+  btnStop.Enabled = FALSE
   
   minutes = 25
   pause = 5
   
-  TextLabel2.Text = minutes
-  TextLabel2.ForeColor = BLACK
-  TextLabel2.BackColor = WHITE
-  TextLabel2.Font = Font["Bitstream Vera Serif,Bold,35"]
+  lblMinutes.Text = minutes
+  lblMinutes.ForeColor = BLACK
+  lblMinutes.BackColor = WHITE
+  lblMinutes.Font = Font["Bitstream Vera Serif,Bold,35"]
   
 END
 
+
+PUBLIC SUB ckBxEnableTicking_Click()
+
+    IF (ckBxEnableTicking.Value = TRUE) AND (tmrPomodoro.Enabled = TRUE) THEN 
+      Music.Load("clock.wav")
+      Music.Play(-1)
+    ELSE 
+      Music.Stop
+    ENDIF 
+
+END

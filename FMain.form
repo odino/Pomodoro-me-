@@ -1,47 +1,52 @@
 # Gambas Form File 2.0
 
 { Form Form
-  MoveScaled(0,0,65,24)
+  MoveScaled(0,0,60,25)
   Text = ("")
   { Panel1 Panel
-    MoveScaled(0,0,65,25)
+    MoveScaled(0,0,80,38)
     { PictureBox1 PictureBox
-      MoveScaled(44,1,16,16)
+      MoveScaled(40,1,16,16)
     }
     { ProgressBar1 ProgressBar
-      MoveScaled(1,14,38,7)
+      MoveScaled(1,17,38,7)
     }
-    { TextLabel2 TextLabel
-      MoveScaled(40,13,29,13)
-      Text = ("TextLabel2")
+    { lblMinutes TextLabel
+      MoveScaled(40,16,29,13)
+      Text = ("25")
     }
-    { TextLabel3 TextLabel
-      MoveScaled(52,14,24,3)
-      Text = ("TextLabel3")
+    { lblMinutesText TextLabel
+      MoveScaled(49,17,24,3)
+      Text = ("minutes")
     }
-    { Timer2 #Timer
-      #X = 294
-      #Y = 126
+    { tmrPause #Timer
+      #X = 49
+      #Y = 224
+    }
+    { ckBxEnableTicking CheckBox
+      MoveScaled(2,13,16,3)
+      ToolTip = ("Play ticking sound while timer is running.")
+      Text = ("Enable Ticking")
     }
   }
-  { TextLabel1 TextLabel
+  { lblTitle TextLabel
     MoveScaled(2,1,29,4)
-    Text = ("TextLabel1")
+    Text = ("Pomodoro me!")
   }
-  { Button1 Button
+  { btnStart Button
     MoveScaled(1,7,16,4)
-    Text = ("Button1")
+    Text = ("Start pomodoro")
   }
-  { Timer1 #Timer
-    #X = 420
-    #Y = 119
+  { tmrPomodoro #Timer
+    #X = 7
+    #Y = 224
   }
-  { TextLabel4 TextLabel
-    MoveScaled(52,17,24,3)
-    Text = ("TextLabel3")
+  { lblRemainingText TextLabel
+    MoveScaled(49,20,24,3)
+    Text = ("remaining")
   }
-  { Button2 Button
+  { btnStop Button
     MoveScaled(19,7,16,4)
-    Text = ("Button1")
+    Text = ("Stop pomodoro")
   }
 }
